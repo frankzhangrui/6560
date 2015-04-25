@@ -8,7 +8,6 @@ import matplotlib.pylab as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 Img = np.float32(cv2.imread('twocells.bmp',0))
-Img = np.float32(cv2.imread('1.bmp',0))
 timestep = 5.
 mu = 0.2/timestep
 iter_inner = 5
@@ -26,7 +25,6 @@ c0 = 2.
 origin = 'lower'
 initialLSF = c0*np.ones(Img.shape,np.float32)
 initialLSF[10:55, 10:75] = -c0
-initialLSF[26:70,28:90] = -c0
 phi = initialLSF
 my_solver=My_Solver(phi, g, lambda1, mu, alfa, epsilon, timestep, iter_inner, iter_outer)
 phi_list=my_solver.run()
